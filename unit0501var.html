@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS variable</title>
+</head>
+<body>
+    <script>
+        //宣告變數
+
+        //var 關鍵字宣告變數，name 變數名稱，可用''或""表示值為字串，之中沒有任何文字，稱為空字串
+        var name=''; // ；表示敘述結束
+        var height=0.0; // 0.0 為數值(Number)變數
+        var weight=0.0; 
+        var gender=""; //字串(String)變數
+        var marriage=false; //bloon 布林變數，只有兩個值，true/false
+
+        name='艾呆丸';
+        height=170.5;
+        weight=60.5;
+        gender="男";
+        marriage=true;
+
+        //object 物件型別
+        var emp={
+            no:1,
+            name:'花不丸',
+            h:175.5,
+            w:65.0,
+            gender:'女',
+            marriage:false
+        }
+
+        document.write("<h1>BSNET Employee Health Management System</h1>");
+        document.write("<hr>");  //一條線
+        document.write("姓名：" + name + "<br>"); //<br>換行
+        document.write("身高：" + height + " cm<br>");
+        document.write("體重：" + weight + " kg<br>");
+        document.write("性別：" + gender + "<br>");
+        document.write("婚姻：" + marriage + "<br>");
+
+        document.write("<br><h1>BSNET Employee Health Management System</h1>");
+        document.write("<hr>");
+        document.write("姓名：" + emp.name + "<br>"); 
+        document.write("身高：" + emp.h + " cm<br>");
+        document.write("體重：" + emp.w + " kg<br>");
+        document.write("性別：" + emp.gender + "<br>");
+        document.write("婚姻：" + emp.marriage + "<br>");
+
+        emp=null; //空值
+        //document.weight("姓名：" + emp.name + "<br>");  //error,Uncaught TypeError: Cannot read properties of null (reading 'name')
+
+        document.write("~~THE END~~")
+
+
+    </script>
+    
+</body>
+</html>

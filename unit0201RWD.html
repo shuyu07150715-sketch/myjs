@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en"> <!--舉例屬性設定 此程式碼 html為標籤　lang為標籤的屬性-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe Time (RWD)</title>
+    <style>
+        
+        body{ /* 元素選擇器*/
+            margin: 0px;
+        }
+
+        nav{
+            background-color: maroon;
+        }
+
+        nav ul{  /*只設定nav裡的ul 不會改變所有ul*/
+            list-style-type: none;
+            margin: 0px;
+            display: inline-flex;
+        }
+
+        nav a{
+            color: lightgoldenrodyellow;  /*連結文字的顏色*/
+            text-decoration: none;  /*文字裝飾:無*/
+        }
+
+        nav li{
+            padding: 1.2vw; /*設定邊線寬度(內距)*/ 
+        }
+
+        nav li:hover{
+            background-color: green;
+        }
+
+        /*寫法1*/ 
+        nav ul:nth-of-type(2){  /*選中 nav中第2個ul*/
+            float: right;       /*顯示在右邊*/
+        }
+
+
+        /*寫法2 
+        nav ul:nth-child(2){
+            float: right;
+        }*/
+
+
+        header{
+            width:100% ;   /*寬度*100%*/
+            height: 25vh;  /*高度1/4*/
+            /*background-color: brown;*/ /*以純色為標頭背景-咖啡色*/
+            background-image: url(images/coffee08.jpg); /*以圖片為標頭背景*/
+            background-size: cover;  /*尺寸為一整張圖片覆蓋*/
+            color: beige; /*標頭文字顏色*/
+            display: flex; /*對齊和排版 設定為flexbox 需有這個 才可設定以下兩行程式*/
+            justify-content: center; /*左右版型：置中*/
+            align-items: center; /*上下版型：置中*/
+        }
+
+        h1{
+            color: beige; /*設定h1標頭文字顏色*/
+            font-size: 5rem; /*文字大小為預設字體5倍大*/
+        }
+
+        *{ /*  *為萬用字元  */
+            box-sizing: border-box; /*包含border，padding*/
+        }
+
+        /* cell phone*/
+        /* 屬性選擇器 attribute selector, 使用[]括住*/
+        [class *='col-']{ 
+            /*選取所有class屬性值中包含'col-'子字串的HTML元素； *:包含；'col-':要尋找的子字串*/
+            width: 100%;
+            float: left; /*所有被選中的元素向左浮動，形成多欄排列的效果*/
+            padding: 1vw;
+        }
+
+        /*類別選擇器 class selector ,以「.」 為開頭*/
+        /* 平板 */
+        @media only screen and (min-width:992px) { /*最小螢幕尺寸為992*/
+            .col-m-1{width: 8.33%; }   /*設定類別 螢幕寬度為8.33%*/
+            .col-m-2{width: 16.67%; }
+            .col-m-3{width: 25.00%; }
+            .col-m-4{width: 33.33%; }
+            .col-m-5{width: 41.67%; }
+            .col-m-6{width: 50.00%; }
+            .col-m-7{width: 58.33%; }
+            .col-m-8{width: 66.67%; }
+            .col-m-9{width: 75.00%; }
+            .col-m-10{width: 83.33%; }
+            .col-m-11{width: 91.67%; }
+            .col-m-12{width: 100.00%; }
+        }
+
+        /* 桌機 */
+        @media only screen and (min-width:1200px) { /*最小螢幕尺寸為1200*/
+            .col-1{width: 8.33%; }     /*設定類別 螢幕寬度為8.33%*/
+            .col-2{width: 16.67%; }
+            .col-3{width: 25.00%; }
+            .col-4{width: 33.33%; }
+            .col-5{width: 41.67%; }
+            .col-6{width: 50.00%; }
+            .col-7{width: 58.33%; }
+            .col-8{width: 66.67%; }
+            .col-9{width: 75.00%; }
+            .col-10{width: 83.33%; }
+            .col-11{width: 91.67%; }
+            .col-12{width: 100.00%; }
+        }
+
+    menu ul{
+        list-style: none;
+        padding: 0px;
+    }
+
+    menu li{
+        padding: 8px;
+        border-bottom: 1px burlywood solid; 
+        margin-bottom: 8px;
+    }
+
+    menu li a{
+        text-decoration: none;
+        color: burlywood;
+    }
+    menu li:hover{
+        background-color: brown;
+    }
+
+    menu iframe{ 
+        border-radius: 8px;
+    }
+
+    /*設定內容框架顯示畫面*/
+    iframe{ 
+        width: 100%;  /*寬*/
+        height: 45vh; /*高*/
+        border: none; /*邊線*/
+        overflow: auto; /*文字過長自動出現捲軸*/
+    }
+
+
+    /*ID選擇器，ID selector*/
+    #bean{
+        width: 100%;
+    }
+
+    /*頁尾設定
+    footer{
+        clear: both;  /*清除浮動
+    }*/
+
+    footer{ /*設定頁尾*/
+        position: fixed;  /*頁尾位置固定*/
+        bottom: 0px;  /*底部邊界*/
+        left: 0px; /*左邊邊界*/ 
+         background-color: lightgrey; /*背景顏色*/
+         color: gray; /*文字顏色*/
+         width: 100%; /*寬度*/
+         text-align: center;  /*文字位置*/ 
+    }
+    </style>
+</head>
+
+<body>
+    <!--導覽列-->   
+    <nav>
+        <ul> <!--項目符號-->
+            <li><a href="#">HOME</a></li> 
+            <li><a href="#">ABOUT US</a></li>
+            <li><a href="#">PRODUCT</a></li>
+            <li><a href="#">SERVICE</a></li>
+            <li><a href="#">INFO</a></li>
+        </ul>
+
+        <ul>
+            <li><a href="login.html" target="coffeeFrame">LOGIN</a></li>
+        </ul>
+    </nav>
+
+    <!--標頭區-->
+    <header>
+         <h1>welcome to cafe time</h1>
+    </header>
+
+    <!--主要內容區-->
+    <main>
+        <!--選單區-->
+        <menu class="col-3 col-m-4"> <!--可設定多個屬性 中間用空格隔開-->
+            <ul>
+                <li><a href="coffee1.html" target="coffeeFrame">咖啡的歷史起源</a></li>
+                <!--超連結設定，tagert設定連結到coffeeFrame內框架-->
+                <li><a href="coffee2.html" target="coffeeFrame">咖啡的來源</a></li>
+                <li><a href="coffee3.html" target="coffeeFrame">咖啡豆的成分</a></li>
+                <li><a href="coffee4.html" target="coffeeFrame">咖啡豆的加工</a></li>
+            </ul>
+
+            <!--音樂區-->
+            <audio controls="">
+                <source src="sounds/baha.mp3" type="audio/mpeg">  <!--音樂用audio 設定聲音型態-->
+            </audio>
+
+            <!--影片區-->
+            <video controls="" style="width: 100%;border-radius: 8px;"> <!--border-radius 導圓角-->
+                <source src="videos/coffee2.mp4" type="video/mp4"> <!--影片用video 設定影片型態-->
+            </video>
+
+            <!--YT區-->
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/VInyaL077bo?si=30qTcbVLM_bVupha" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <!--貼上YT影片-->
+
+        </menu>
+
+        <!--內容顯示區-->
+        <div class="col-6 col-m-8">
+            <iframe name="coffeeFrame" src="coffee1.html"></iframe> <!--內容框架 顯示coffee1.html畫面-->
+        </div>
+
+        <!--廣告、文章分享或公告-->
+        <article class="col-3 col-m-12">
+            <!--圖片區-->
+            <picture>
+                <!--不同裝置顯示不同圖片-->
+                <source srcset="images/arabica.png" media="(max-width:991px)"> <!--設定最大寬度991(螢幕寬度991以下顯示此圖片)-->
+                <source srcset="images/robusta.png" media="(max-width:1199px)"> <!--設定最大寬度1199(螢幕寬度1199以下顯示此圖片)-->
+                <img src="images/bean3.png" id="bean"> <!--寬度非991、1199以下顯示圖片-->
+                <!--圖片用img 設定id為bean style裡設定bean樣式-->
+            </picture>
+        </article>
+    </main>
+
+    <!--頁尾-->
+    <footer>
+        2025 版權所有|翻拷必究
+    </footer>
+</body>
+
+</html>

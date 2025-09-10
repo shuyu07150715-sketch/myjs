@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="demo" width="500" height="400" style="border: 1px green solid;"></canvas>
+
+    <script>
+        const demo=document.getElementById('demo');
+        const ctx=demo.getContext('2d'); //2d繪圖上下文的物件
+
+        //矩形
+        ctx.fillStyle='pink';
+        ctx.fillRect(50,50,100,75); // rectangle (x軸,y軸,w寬,h高)
+
+        //線條
+        ctx.beginPath();
+        ctx.moveTo(0,0);
+        ctx.lineTo(500,400);
+        ctx.strokeStyle='green';
+        ctx.stroke();
+
+        //圓形
+        ctx.beginPath();
+        ctx.arc(350,350,50,0,Math.PI*2);
+        ctx.fillStyle='lightGreen';
+        ctx.fill();
+
+        //漸層色
+        let g=ctx.createLinearGradient(0,0,200,0);
+        g.addColorStop(0,'green');
+        g.addColorStop(1,'yellow');
+
+        ctx.fillStyle=g;
+        ctx.fillRect(10,10,200,100);
+    </script>
+
+</body>
+</html>

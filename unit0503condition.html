@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>員工健康管理系統</title>
+</head>
+<body>
+    <h1>員工健康管理系統，條件式流程控制</h1>
+    <hr>
+    <input type="text" placeholder="name" id="name"><br> 
+    <input type="number" placeholder="height" id="h"><br>
+    <input type="number" placeholder="weight" id="w"><br>
+    <input type="radio" id="male" name="gender" checked >男  <!--checked設定為預設選項-->
+    <input type="radio" id="female" name="gender" >女<br>
+    <button onclick="standard()">標準體重</button> <!--呼叫standard()函數-->
+    <button onclick="BMI()">身體質量指數</button>  <!--呼叫BMI()函數-->
+    <p id="result"></p> <!--成果輸出-->
+
+    <script>
+
+        //標準體重
+        function standard(){  //建立standard()函數
+            var name='';    //宣告姓名變數
+            var h=0.0;      //宣告身高變數
+            var w=0.0;      //宣告體重變數
+            var gender='';  //宣告性別變數
+
+            var std=0.0;    //宣告標準體重變數
+            var upper=0.0;  //宣告體重上限變數
+            var lower=0.0;  //宣告體重下限變數
+            var warning=''; //宣告警語變數
+            
+            name=document.getElementById('name').value; //將id=name取得的數值傳給name
+            h=document.getElementById('h').value;
+            w=document.getElementById('w').value;
+
+            if(name==='' || h==0 || w==0){           //===判斷型別(字串/數值...等較嚴格)；==不判斷型別； ||為"或"
+                alert('請輸入姓名、身高與體重!!')
+                return;
+            }
+
+            //單一條件的流程控制，判別性別是不是男
+            if(document.getElementById('male').checked){ //如果性別'男'為已選擇
+                gender='男'         //男性
+                std=(h-80)*0.7;     //標準體重計算方式
+            }else{
+                gender='女'         //如為女性
+                std=(h-70)*0.6;     //標準體重計算方式
+            }
+
+            upper=std*1.1;  //計算體重上限
+            lower=std*0.9;  //計算體重下限
+
+            //多重條件的流程控制(需判斷2個以上)
+            if(w>upper){ //條件一
+                warning="您太胖了，需減重!!";
+            }else if(w<lower){  //條件二
+                warning="您太瘦了，需增重!!";
+            }else{  //否則
+                warning="恭喜您，擁有良好的體態";
+            }
+
+            //印出
+            document.getElementById('result').innerHTML="姓名：" + name + "<br>"
+                                                        +"身高：" + h + " 公分<br>"
+                                                        +"體重：" + w + " 公斤<br>"
+                                                        +"性別：" + gender + "<br>"
+                                                        +"標準體重：" + std.toFixed(2) + "公斤<br>"   //.toFixed(2) 取小數點兩位
+                                                        +"體重上限：" + upper.toFixed(2) + "公斤<br>"
+                                                        +"體重下限：" + lower.toFixed(2) + "公斤<br>"
+                                                        +"溫馨提醒：" + warning + "<br>";
+        }
+
+        //身體質量指數
+        function BMI(){
+            var name='';
+            var h=0.0;
+            var w=0.0;
+            var bmi=0.0;
+            var warning='';
+
+            name=document.getElementById('name').value;
+            h=document.getElementById('h').value;
+            w=document.getElementById('w').value;
+            
+            //bmi=w/((h/100)*(h/100));  寫法一
+            //bmi=w/Math.pow(h/100,2);  寫法二，運用函數Math.pow(數值,次方)
+            bmi=w/((h/100) ** 2);     //寫法三，**後數字為次方
+
+
+
+            
+            if(bmi<18.5){
+                warning="過輕";
+            }else if(bmi<24){
+                warning="正常";
+            }else if(bmi<27){
+                warning="過重";
+            }else if(bmi<30){
+                warning="輕肥";
+            }else if(bmi<35){
+                warning="中肥";
+            }else{
+                warning="重肥";
+            }
+
+            document.getElementById('result').innerHTML="姓名：" + name + "<br>"
+                                                        +"身高：" + h + " 公分<br>"
+                                                        +"體重：" + w + " 公斤<br>"
+                                                        +"bmi：" + bmi.toFixed(1) + "<br>"
+                                                        +"溫馨提醒：" + warning + "<br>";
+        }
+
+        
+    </script>
+
+</body>
+</html>

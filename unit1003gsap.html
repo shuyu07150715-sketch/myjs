@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+        }
+
+        #a{
+            background-color: lightblue;
+        }
+
+        
+        #b{
+            background-color: aquamarine;
+        }
+
+        
+        #c{
+            background-color: darksalmon;
+        }
+    </style>
+    <title>javascript gsap</title>
+</head>
+<body>
+    <div id="a"></div>
+    <div id="b"></div>
+    <div id="c"></div>
+
+    <script>
+        //WITH Timelines (cleaner, more versatile)
+        var tl = gsap.timeline({repeat: 2, repeatDelay: 1});
+        tl.to("#a", {x: 100, duration: 1});
+        tl.to("#b", {y: 50, duration: 1});
+        tl.to("#c", {opacity: 0, duration: 1});
+    </script>
+</body>
+</html>

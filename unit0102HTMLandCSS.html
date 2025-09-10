@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>welcome to cafe time</title> 
+
+   
+   <style> /*全部CSS只能在style裡設定*/
+    body{
+        margin: 0px;  /*網頁圖片邊界 0為無*/
+    }
+
+    /*header CSS區塊*/   /*為CSS註解*/
+        header{
+            width:100% ;   /*寬度*100%*/
+            height: 25vh;  /*高度1/4*/
+            /*background-color: brown;*/ /*以純色為標頭背景-咖啡色*/
+            background-image: url(images/coffee08.jpg); /*以圖片為標頭背景*/
+            background-size: cover;  /*尺寸為一整張圖片覆蓋*/
+            color: beige; /*標頭文字顏色*/
+            display: flex; /*對齊和排版 設定為flexbox 需有這個 才可設定以下兩行程式*/
+            justify-content: center; /*左右版型：置中*/
+            align-items: center; /*上下版型：置中*/
+        }
+
+        h1{
+            color: beige; /*設定h1標頭文字顏色*/
+            font-size: 5rem; /*文字大小為預設字體5倍大*/
+        }
+
+        main{
+            margin: 3rem; /*主要內容顯示區邊界設定*/
+        }
+
+        p{
+            color: #003377;/*設定整體段落主要顏色*/
+        }
+
+        button{  /*設定按鈕*/
+            width: 20vw; /*寬度*/
+            height: 10vh; /*高度*/
+            border-radius: 25px; /*按鈕圓角*/
+            background-color: red; /*按鈕背景顏色*/
+            color: white; /*文字顏色*/
+            font-size: 1.2rem; /*文字大小*/
+            border: #FF99EE 5px solid; /*按鈕邊框樣式顏色 寬度 實線*/
+            cursor: pointer; /*手指形狀指標*/
+        }
+        button:hover{
+            background-color: green;  /*改變按鈕顏色*/
+        }
+
+        footer{ /*設定頁尾*/
+            position: fixed;  /*頁尾位置固定*/
+            bottom: 0px;  /*底部邊界*/
+            left: 0px; /*左邊邊界*/ 
+            background-color: lightgrey; /*背景顏色*/
+            color: gray; /*文字顏色*/
+            width: 100%; /*寬度*/
+            text-align: center;  /*文字位置*/ 
+        }
+    </style>
+
+
+</head>
+
+
+<body>
+
+<!--header 標頭-->
+<header>
+    <!---h1 標頭文字-->
+    <h1>welcome to cafe time</h1>
+</header>
+
+<!--main主要內容區-->
+<main>
+    <!--<P>段落設定-->
+<p>咖啡的來源已無從稽考。諸多傳說之一指咖啡原產於衣索比亞（Ethiopia）西南部的咖法省高原地區，據說是一位牧羊人發現羊吃了一種植物後，變得非常興奮活潑，因此發現了咖啡。</p>
+
+    <!--小段落文字顏色不同可直接在該段落設定-->
+<p style="color: green;">也有說法是由於一場野火，燒毀了一片咖啡林，燒烤咖啡的香味引起周圍居民的注意。人民最初咀嚼這種植物果實以提神，後來烘烤磨碎摻入麵粉做成麵包，作為勇士的食物，以提高作戰的勇氣。</p>
+
+    <!--顏色可用英文亦可用16進制，color設定文字顏色；background-color設定文字背景顏色，以分號做區隔-->
+<p style="color: palevioletred; background-color: #00AAAA;">直到公元1000年左右，人們才開始用水煮咖啡做為飲料。13世紀時，衣索比亞軍隊入侵葉門，將咖啡帶到了阿拉伯世界。因為伊斯蘭教義禁止教徒飲酒，有的宗教界人士認為這種飲料刺激神經，違反教義，曾一度禁止並關閉咖啡店，但埃及蘇丹認為咖啡不違反教義，命令開禁，咖啡飲料迅速在阿拉伯地區流行開來。咖啡（Coffee）這個詞，就是來源於阿拉伯語（Qahwa），意思是「植物飲料」，後來傳到土耳其，變為Kahve，成為歐洲語言中這個詞的來源。</p>
+
+<p>咖啡種植，製作的方法也被阿拉伯人不斷地改進逐漸完善。</p>
+
+<!--新增按鈕 br為換行顯示-->
+<!--alert彈出視窗-->
+<button onclick="alert('預購從速，不買保證後悔!!')">父親節 咖啡豆大特價<br>買一送三</button>
+
+</main>
+
+<!--footer 頁尾資訊-->
+<footer>
+    2025 版權所有|翻拷必究
+</footer>
+
+</body>
+</html>

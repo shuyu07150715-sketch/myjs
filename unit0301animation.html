@@ -1,0 +1,31 @@
+<!DOCTYPE html>  <!--用CSS做動畫-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS animation</title>
+    <style>
+
+        /*定義動畫*/
+        @keyframes moveRight{
+            from{ /*從*/
+                transform: translateX(0); /*x軸0像素位置*/
+            }
+            to{  /*移動到*/
+                transform: translateX(200px); /*x軸200像素位置*/
+            }
+        }
+
+        .animated{  /*建立類別 */
+            width: 50px;  /*寬*/
+            height: 50px;  /*高*/
+            background-color: aquamarine; /*設定背景顏色*/
+            animation: moveRight 2s ease-in-out infinite;
+             /*使用動畫的方式，1次2秒，以淡近淡出(ease-in-out)的速度，無限重複(infinite)*/
+        }
+    </style>
+</head>
+<body>
+    <div class="animated"></div> <!--div套用類別 animated-->
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe Time Animation</title>
+<style>
+
+    body{
+        display:flex ;
+        justify-content: center; /*置中*/
+        align-items: center;
+        height: 100vh; 
+        margin: 0px;
+    }
+
+    div{
+        width: 200px; /*寬度200px*/
+        height: 200px; /*高度200px*/
+        position: relative; /*位置:相對*/
+        border-radius: 50%;  /*圓形*/
+        cursor: pointer; /*手指形狀指標*/
+        /*border: 1px solid red; */
+        
+    }
+
+    /*將.animated類別的設定排除*/
+    div:not(.animated){
+        background-image: url(images/drink/1.jpg);
+        background-size: contain;
+        border: 1.25em gold solid;
+    }
+
+    div:hover .animated{
+        animation-play-state: paused; /* 滑鼠移到上方時，動畫暫停*/
+    }
+
+    /*動畫樣式*/
+    .animated{
+        position: absolute; /*位置:絕對*/
+        animation: aroundCricle 6s linear infinite; /*使用動畫的方式，6秒完成一次，liner(線性)的速度，無限重複*/
+    }
+
+    .animated img{
+        border-radius: 50%;/*圖片也應用圓角，使其看起來更加圓型*/
+    }
+
+    /*在一個半徑為150像素的虛擬圓周上順時針繞行一圈*/
+    @keyframes aroundCricle{
+        0%{
+            transform: rotate(0deg) translate(150px); /*rotate(0deg) 角度0度 向右平移了150px置於圓形的起點*/
+        }
+        
+        25%{
+            transform: rotate(90deg) translate(150px); /*rotate(90deg) 角度90度*/
+        }
+        
+        50%{
+            transform: rotate(180deg) translate(150px); /*rotate(180deg) 角度180度*/
+        }
+
+        75%{
+            transform: rotate(270deg) translate(150px); /*rotate(270deg) 角度270度*/
+        }
+
+        100%{
+            transform: rotate(360deg) translate(150px); /*rotate(360deg) 角度360度*/
+        }
+    }
+
+</style>
+
+</head>
+<body>
+    <div>
+        <div class="animated"> 
+            <img src="images/icon3.png" alt="icon">
+        </div>
+    </div>
+</body>
+</html>

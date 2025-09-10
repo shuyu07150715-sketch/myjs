@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Canvas Text and Img Apply</title>
+</head>
+<body>
+    <button id="slogan">Show Text</button>
+    <button id="image">Show Image</button>
+    <hr>
+    <canvas id="txtCanvas" width="500" height="75"></canvas>
+    <br>
+    <canvas id="imgCanvas" width="500" height="500"></canvas>
+    <script>
+        //文字畫布
+        document.getElementById('slogan').addEventListener('click',function(){   //監聽
+            const canvas=document.getElementById('txtCanvas');
+            const ctx=canvas.getContext('2d');  //2d繪圖上下文的物件
+            ctx.font='24px Arial';  //字體大小 字形
+            ctx.fillStyle='green';  //字體顏色
+            ctx.fillText('再忙也要陪你喝一杯咖啡',50,50);  //(顯示的文字,x,y)
+        });
+
+        //圖片畫布
+        document.getElementById('image').addEventListener('click',function(){   //監聽
+            const canvas=document.getElementById('imgCanvas');
+            const ctx=canvas.getContext('2d');  //2d繪圖上下文的物件
+            const img=new Image();
+            img.onload=()=>{
+                ctx.drawImage(img,0,0,500,500);
+            }
+            img.src='Images/drink/1.jpg';  //要顯示的圖片
+        });
+    </script>
+</body>
+</html>

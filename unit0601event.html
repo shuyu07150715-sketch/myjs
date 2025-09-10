@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS nest loop，event</title>
+</head>
+<body>
+    <h1>99乘法表</h1>
+    <hr>
+    <p id="result">目前的結果</p> 
+
+    <style>
+        table{
+            width: 100%;    /*寬度100%*/
+            border: 8px gold solid;  /*邊線為8px 金色實心線條*/
+            border-collapse: collapse;  /*表格預設有間隙，此行程式為移除間距*/
+        }
+
+        td{
+            border: 1px silver solid;  /*邊線樣式 銀色實心*/
+            padding: 1.2rem;    /*內距1.2rem*/
+            text-align: center; /*文字置中*/
+        }
+    </style>
+
+    <script>
+
+        k=0;
+
+        //建立表格
+        document.write("<table>");
+        
+        //外迴圈outer
+        for(var i=1;i<=9;i++){ 
+            document.write("<tr onmouseover='setTrGB(this)' onmouseout='clearTrGB(this)'>") //在Tr呼叫函數 改變列的背景色 onmouseover當滑鼠移動至 onmouseout當滑鼠離開 
+                                // onmouseover='setTrGB(this)'  this
+
+            //內迴圈inner
+            for(var j=1;j<=9;j++){
+                k=i*j;      //執行i*j
+                document.write("<td onmouseenter='setTdFont(this)' onmouseleave='clearTdFont(this)'>"+i+ "x" +j+ "=" +k+"</td>")  //輸出結果 ex: 9x7=63
+                //在Td呼叫函數 改變文字顏色  onmouseenter當滑鼠移動至 onmouseleave當滑鼠離開
+            }
+            document.write("</tr>");  //已跑完9次換行
+        }
+        document.write("</table>");
+
+        //設定列的背景色
+        function setTrGB(obj) {  //setTrGB(自行命名)此處命名為物件(obj)
+            obj.style.backgroundColor='yellowgreen'; //設定背景顏色為黃綠色
+        }
+
+        //清除列的背景色
+        function clearTrGB(obj) {
+            obj.style.backgroundColor='transparent'; //設定背景顏色為透明  transparent 透明
+        }
+
+        //設定格子文字顏色
+        function setTdFont(obj){
+            obj.style.color='red';  //設定字體為紅色
+            obj.style.cursor='pointer';  //設定手型指標
+            document.getElementById('result').innerHTML=obj.innerHTML; //取得obj的值傳給result
+        }
+
+        //還原格子文字顏色
+        function clearTdFont(obj){ 
+            obj.style.color='inherit';  //還原原本顏色
+        }
+        
+    </script>
+</body>
+</html>

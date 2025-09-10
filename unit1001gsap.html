@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        .demo{
+            width: 100px;
+            height: 100px;
+            background: pink;
+            margin: 25px;
+        }
+    </style>
+    <title>GSAP</title>
+</head>
+<body>
+    <div class="demo"></div>
+    <script>
+        gsap.to(".demo", {
+             x: 300, //移動距離 
+             rotation: 360,  //旋轉角度
+             duration: 5,   //在幾5秒內到達
+            ease:'bounce.out' //動畫效果
+         });
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript XHR and AJAX</title>
+    <style>
+        div{
+            column-count: 4;
+            column-gap: 1.25em;
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">LOAD</button>
+    <div id="demo"></div>
+    <script>
+
+        document.getElementById('btn').onclick=function(){
+            loadAJAX();  //呼叫函數
+        }
+
+        function loadAJAX(){
+            var url='coffee.txt';
+            var xhr=new XMLHttpRequest();  //宣告xhr物件變數，透過此物件存取伺服器的資源
+            xhr.onreadystatechange=function(){
+                if(xhr.readyState===4 && this.status===200){  // &&->AND  4->用戶端狀態(操作已完成)  200->HTTP請求成功
+                    var obj=xhr.response;  //物件型別
+                    document.getElementById('demo').innerHTML=xhr.responseText; //傳回文字內容，若請求失敗，則傳回null
+                }
+            }
+
+            xhr.open('get',url,true);  //初始化請求
+            xhr.send();  //發送請求
+
+        }
+    </script>
+</body>
+</html>

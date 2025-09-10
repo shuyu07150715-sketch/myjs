@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe Time Login System</title>
+
+    <style>
+        input{
+            padding: 0.8em;
+        }
+
+        input:focus{
+            background-color: azure; /*取得焦點 當選中時改變顏色*/
+        }
+
+        input:blur{
+            background-color: inherit; /*失去焦點 當未選中時回歸原顏色 inherit繼承*/
+        }
+
+        [type=submit]{
+            width: 100%;
+            height: 6.5em;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <form> <!--表單-->
+        <table > <!--表格-->
+
+            <!--列-->
+            <tr>
+                <td colspan="2"><h2>LOGIN SYSTEM</h2></td> <!--兩欄合併-->
+            </tr>
+            <tr> <!--第二列資料-->
+                <td><input type="email" name="email" id="email" placeholder="電子郵件"></td> 
+                <td rowspan="2"><input type="submit" value="LOGIN"></td> <!--兩列合併-->
+            </tr>
+
+            <tr> <!--第三列資料-->
+                <td><input type="password" name="pwd" placeholder="密碼"></td> 
+            </tr>
+
+        </table>
+    </form>
+    
+</body>
+</html>

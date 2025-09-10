@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>存錢筒</h1>
+    <hr>
+    <p>第1天存1元，</p>
+    <img src="images/pig.png" onclick="pig()">
+    <p id="result"></p>
+
+    <script>
+        function pig(){
+            var sum=0;
+            //r=document.getElementById('result');
+            result=document.querySelector('#result'); //選擇器
+            
+            result.innerHTML=''; //空字串
+
+            for(var i=1;i<=10;i++){  //i=1起始值,i<=10終止值,i++為i+1
+                //r.innerHTML += i + "<br>"; 確認數值1-10正確
+                result.innerHTML += "第"+i+"天："+sum+"+"+i+"="; //以第一天顯示結果為例  "第" +1+ "天：" +0+ "+" +1+ "="
+                sum +=i;  //sum=sum+i 
+                result.innerHTML += sum +"<br>" 
+            }
+        }
+    </script>
+</body>
+</html>

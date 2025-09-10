@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Fuction</title>
+    <style>
+         div,button{   /*同時設定兩個用 , 隔開*/
+            width: 100%;
+            height: 7vh;
+            padding-top: 0.8em;  /*只設定上方*/
+            padding-bottom: 0.8em;  /*只設定下方*/
+            margin-top:0.8em ;
+            border: 1px gold solid;
+            border-radius: 50px;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.25rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>函數與事件</h1>
+    <div id="divMorning">Good Morning</div>
+    <div id="divAfternoon">Good Afternoon</div>
+    <div id="divLucky">Lucky Number</div>
+    <button id="btnStop" style="display: none;">STOP</button>  <!--stop一開始先隱藏-->
+
+    <script>
+
+        /* 變數、常數示範案例
+        var i=100;
+        const j=100;
+
+        i=200;
+        //j=200;    error
+
+        console.log("i=",i);
+        console.log("j=",j);
+
+        */
+
+        //常數物件變數，物件的屬性是可變的
+        const divMorning=document.getElementById('divMorning');
+        const divAfternoon=document.getElementById('divAfternoon');
+        const divLucky=document.getElementById('divLucky');
+        const btnStop=document.getElementById('btnStop');
+
+
+
+        //物件.事件
+        divMorning.onclick=function(){   //匿名函數
+            window.alert('歐嗨唷!!');
+        }
+
+        divMorning.onmouseover=function(){
+            this.innerHTML='早安';
+            this.style.cursor='pointer';
+            setBG(this); //呼叫函數setBG
+        }
+
+        divMorning.onmouseout=function(){
+            this.innerHTML='Good Morning';
+            clearBG(this); //呼叫函數clearBG
+        }
+
+        //事件.監聽
+        divAfternoon.addEventListener('click',greeting);  //addEventListener('click',greeting) --> 監聽(事件不用+on,函數)
+
+        divAfternoon.addEventListener('mouseenter',function(){  //在內部直接建立匿名函數
+            this.innerHTML='午安';
+            this.style.cursor='pointer';
+            setBG(this)
+        });
+
+        divAfternoon.addEventListener('mouseleave',function(){
+            this.innerHTML='Good Afternoon';
+            clearBG(this)
+        });
+
+        //當滑鼠移動到LuckyNimber時 高度變為20vh、字體大小5em、隱藏按鈕顯示
+        divLucky.addEventListener('mouseover',function(){
+            this.style.height='20vh';
+            this.style.fontSize='5em';
+            btnStop.style.display='block';  //顯示按鈕
+        });
+
+        divLucky.addEventListener('mousemove',getNumber);  //當滑鼠移動時 呼叫grtNumber函數
+
+        btnStop.addEventListener('click',removeEventListener);
+
+        //設定背景
+        function setBG(obj){
+            obj.style.backgroundColor='pink'; 
+        }
+
+        //還原背景
+        function clearBG(obj){
+            obj.style.backgroundColor='inherit';
+        }
+
+        //午安問候函數 彈出對話方塊顯示'扣尼吉哇!'
+        function greeting(){
+            window.alert('扣尼吉哇!');
+        }
+
+        //產生幸運號碼
+        function getNumber(){
+            var num=Math.floor(Math.random()*49)+1;  //floor-->無條件捨去，取>=最小整數回傳 num為1-49之間的數 
+            divLucky.innerHTML=num;
+        }
+
+        //移除滑鼠移動mousemove的監聽
+        function removeEventListener(){
+            divLucky.removeEventListener('mousemove',getNumber); //移除監聽(事件,函數)
+            window.alert('不再產生隨機數字');
+        }
+    </script>
+</body>
+</html>

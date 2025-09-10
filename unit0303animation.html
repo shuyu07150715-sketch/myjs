@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe Time</title>
+<style>
+    body{
+        margin: 0px;
+    }
+
+    /*定義動畫*/
+    @keyframes moveRectangle{
+        0%{
+            transform: translate(0,0);  /*原點*/
+        }
+        25%{
+            transform: translateX(250px); /*右移20px*/
+        }
+        50%{
+            transform: translate(250px,250px); /*移動到右下角*/
+        }
+        75%{
+            transform: translate(0px,250px); /*移動到左下角*/
+        }
+        100%{
+            transform: translate(0,0); /*回到原點*/
+        }
+    }
+
+    /*樣式方塊*/
+    .animated{
+        width: 50px;
+        height: 50px;
+        animation:moveRectangle 6s linear infinite; /*使用動畫的方式，6秒完成一次，liner(線性)的速度，無限重複*/
+    }
+
+
+
+    div:nth-of-type(1) img{ /*設定第一個div圖片*/
+        width: 100%;
+    }
+
+    div:nth-of-type(2){ /*設定第二個div位置*/
+        position: fixed; /*位置固定*/
+        top: 50px; /*上 50px*/
+        left: 50px; /*下 50px*/
+    }
+
+    div:nth-of-type(2) img{ /*設定第二個div裡的圖片*/
+        width: 200px;
+        height: 200px;
+    }
+</style>
+</head>
+<body>
+    <div class="animated"> <!--套用動畫樣式-->
+        <img src="images/icons/1.png">
+
+    </div>
+    <div>
+        <img src="images/drink/1.jpg" >
+    </div>
+</body>
+</html>

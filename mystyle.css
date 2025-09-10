@@ -1,0 +1,54 @@
+ /*將style內容獨立為一檔案*/
+ body{
+        margin: 0px;  /*網頁圖片邊界 0為無*/
+    }
+
+    /*header CSS區塊*/   /*為CSS註解*/
+        header{
+            width:100% ;   /*寬度*100%*/
+            height: 25vh;  /*高度1/4*/
+            /*background-color: brown;*/ /*以純色為標頭背景-咖啡色*/
+            background-image: url(images/coffee08.jpg); /*以圖片為標頭背景*/
+            background-size: cover;  /*尺寸為一整張圖片覆蓋*/
+            color: beige; /*標頭文字顏色*/
+            display: flex; /*對齊和排版 設定為flexbox 需有這個 才可設定以下兩行程式*/
+            justify-content: center; /*左右版型：置中*/
+            align-items: center; /*上下版型：置中*/
+        }
+
+        h1{
+            color: beige; /*設定h1標頭文字顏色*/
+            font-size: 5rem; /*文字大小為預設字體5倍大*/
+        }
+
+        main{
+            margin: 3rem; /*主要內容顯示區邊界設定*/
+        }
+
+        p{
+            color: #003377;/*設定整體段落主要顏色*/
+        }
+
+        button{  /*設定按鈕*/
+            width: 20vw; /*寬度*/
+            height: 10vh; /*高度*/
+            border-radius: 25px; /*按鈕圓角*/
+            background-color: red; /*按鈕背景顏色*/
+            color: white; /*文字顏色*/
+            font-size: 1.2rem; /*文字大小*/
+            border: #FF99EE 5px solid; /*按鈕邊框樣式顏色 寬度 實線*/
+            cursor: pointer; /*按鈕手指形狀*/
+        }
+        button:hover{
+            background-color: green;  /*改變按鈕顏色*/
+        }
+
+        footer{ /*設定頁尾*/
+            position: fixed;  /*頁尾位置固定*/
+            bottom: 0px;  /*底部邊界*/
+            left: 0px; /*左邊邊界*/ 
+            background-color: lightgrey; /*背景顏色*/
+            color: gray; /*文字顏色*/
+            width: 100%; /*寬度*/
+            text-align: center;  /*文字位置*/ 
+        }

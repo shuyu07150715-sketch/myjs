@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Arrow Fuction</title>
+</head>
+<body>
+    <div id="demo1"></div>
+    <div id="demo2"></div>
+    <div id="demo3"></div>
+    <div id="demo4"></div>
+
+    <script>
+
+        //建立物件常數
+        const demo1=document.getElementById('demo1');
+        const demo2=document.getElementById('demo2');
+        const demo3=document.getElementById('demo3');
+        const demo4=document.getElementById('demo4');
+
+        //無參數，無傳回值
+        var myfun=()=>{demo1.innerHTML='我最愛的咖啡是拿鐵!'}   //  ()=> fuction
+        myfun();
+
+        //有參數，無傳回值
+        var yourfun=(name,coffee)=>{demo2.innerHTML=name+'，您最愛的咖啡是'+coffee}
+        yourfun('曾愛喝','Latte');
+
+        //無參數，有傳回值
+        var hisfun=()=>"再忙也要陪妳喝一杯咖啡";  //return可直接用""不必{}
+        demo3.innerHTML=hisfun();
+
+        //有參數，有傳回值
+        //var herfun=(price,qty)=>'咖啡價格：'+price+'元，數量：'+qty+'杯，總計：'+(price*qty)+'元';
+        var herfun=(price,qty)=>`咖啡價格：${price}元，數量：${qty}杯，總計：${price*qty}元`;  //其他寫法 反引號開頭與結尾(``) 變數以 $ { } 包起來即可
+        demo4.innerHTML=herfun(120,10);
+    </script>
+</body>
+</html>

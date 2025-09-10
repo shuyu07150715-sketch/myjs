@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/echarts/6.0.0/echarts.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="main" style="width: 75% ; height:75vh;"></div>
+
+    <script type="text/javascript">
+      // 基于准备好的dom，初始化echarts实例
+      var myChart = echarts.init(document.getElementById('main'));
+
+      // 指定图表的配置项和数据
+      var option = {
+        title: {
+          text: '8月份銷售直條圖'
+        },
+        tooltip: {},
+        legend: {
+          data: ['銷售數量']
+        },
+        xAxis: {
+          data: ['美式', '拿鐵', '卡布奇諾', '抹茶', '冷萃', '紅茶']
+        },
+        yAxis: {},
+        series: [
+          {
+            name: '銷售數量',
+            type: 'bar',
+            data: [5, 20, 36, 10, 10, 20]
+          }
+        ]
+      };
+
+      // 使用刚指定的配置项和数据显示图表。
+      myChart.setOption(option);
+    </script>
+</body>
+</html>
